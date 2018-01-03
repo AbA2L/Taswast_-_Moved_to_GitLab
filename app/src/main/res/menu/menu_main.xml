@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.github.aba2l.taswast.MainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_cerdits"
+        android:orderInCategory="100"
+        android:title="credits"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_vertion"
+        android:orderInCategory="100"
+        android:title="vertion"
+        app:showAsAction="never"/>
+</menu>

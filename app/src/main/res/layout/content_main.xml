@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.github.aba2l.taswast.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:stretchColumns="1">
+
+        <TableRow>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/previous"
+                android:background="@android:color/transparent"
+                android:drawableRight="@android:drawable/ic_media_previous"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/month"
+                android:gravity="center"
+                android:fontFamily="casual"
+                android:text="27 Unbir 2967"
+                android:textSize="27dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/next"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@android:drawable/ic_media_next"
+                android:gravity="center"/>
+
+        </TableRow>
+        <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/week_daysView"
+            android:layout_gravity="center_horizontal"
+            android:numColumns="7"
+            />
+
+        <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/gridview"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/transparent"
+            android:numColumns="7"
+            />
+
+    </TableLayout>
+
+</android.support.constraint.ConstraintLayout>
