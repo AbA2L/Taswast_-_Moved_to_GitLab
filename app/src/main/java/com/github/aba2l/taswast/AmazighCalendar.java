@@ -1,5 +1,4 @@
 package com.github.aba2l.taswast;
-import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -228,7 +227,7 @@ public class AmazighCalendar {
                 new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"}).indexOf(
                 Cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.getDefault()))+1);
         firstDayOfMonth = currentDay-2;
-        Log.d("AmazighCalendar", "cerrent day: "+firstDayOfMonth);
+
         Cal.add(Calendar.MONTH, 1);
 
         Cal.add(Calendar.DAY_OF_YEAR, Calendar.SUNDAY - currentDay);
@@ -261,7 +260,6 @@ public class AmazighCalendar {
             tab[i]=false;
         }
         for (int i=0; i<eventDays.length; i++){
-            Log.d("########## Event", "day: "+eventDays[i][0]);
             tab[eventDays[i][0]+firstDayOfMonth]=true;
             eventsOfMonth[eventDays[i][0]]=Event.getEventById(eventDays[i][2]);
         }
