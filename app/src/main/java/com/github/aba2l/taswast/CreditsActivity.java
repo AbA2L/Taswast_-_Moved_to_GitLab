@@ -28,7 +28,7 @@ public class CreditsActivity extends AppCompatActivity {
      */
     private static String[] links = new String[]{
             "https://www.twitter.com/AbA2L1",
-            "https://www.facebook.com/?u=Frehat",
+            "https://www.facebook.com/aqvayli.athahmed.7",
             "https://www.facebook.com/ArrawnTlellii/",
             "https://www.github.com/AbA2L/Taswast"
     };
