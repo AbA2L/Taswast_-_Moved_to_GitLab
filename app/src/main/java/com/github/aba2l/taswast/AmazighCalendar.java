@@ -217,32 +217,33 @@ public class AmazighCalendar {
      */
     private static String[] getDaysOfMonth(int dt[]){
         String[] dom = new String[42];
-        dt[1] = 1;
-        dt[2] = dt[2];
+        dt[2]--;
 
-        Calendar Cal = new GregorianCalendar(dt[3], dt[2], dt[1]);
+        Calendar Cal = new GregorianCalendar(dt[3], dt[2], 1);
+
+        int daysOfMonth = Cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+        int firstWeekDayOfMonth = (Arrays.asList(
+                new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"}).indexOf(
+                Cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.UK)));
+        firstDayOfMonth = firstWeekDayOfMonth-1;
 
         Cal.add(Calendar.MONTH, -1);
-        int currentDay = (Arrays.asList(
-                new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"}).indexOf(
-                Cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.getDefault()))+1);
-        firstDayOfMonth = currentDay-2;
-
+        int daysOfPreviousMonth = Cal.getActualMaximum(Calendar.DAY_OF_MONTH);
         Cal.add(Calendar.MONTH, 1);
 
-        Cal.add(Calendar.DAY_OF_YEAR, Calendar.SUNDAY - currentDay);
-        int gridSizeX = 7, gridSizeY = 6, n=0;
-        for (int i = 0; i < gridSizeY; i++)
-        {
-            for (int j = 0; j < gridSizeX; j++)
-            {
-                dom[n]=Cal.get(Calendar.DAY_OF_MONTH)+"";
-
-                Cal.add(Calendar.DAY_OF_YEAR, 1);
-                n++;
+        for (int i=0, n0=0, n1=0; i<dom.length; i++){
+            if (n0<firstWeekDayOfMonth){
+                dom[i]=(daysOfPreviousMonth-firstWeekDayOfMonth+n0+1)+"";
+                n0++;
+            }else if (n1<daysOfMonth){
+                dom[i]=(n1+1)+"";
+                n1++;
+            } else {
+                dom[i]=(i-(daysOfMonth+firstWeekDayOfMonth)+1)+"";
             }
         }
-        dt = null;
+        
         return dom;
     }
 
