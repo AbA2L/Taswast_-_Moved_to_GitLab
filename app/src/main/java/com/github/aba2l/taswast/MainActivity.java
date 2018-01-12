@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 if(!(((position<6)&&(day>27)) || ((position>30)&&(day<12)))){
                     Toast.makeText(
                             getApplicationContext(),
-                            AmazighCalendar.getDayEventName(day), Toast.LENGTH_SHORT).show();
+                            AmazighCalendar.getDayEvents(day), Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(
                             getApplicationContext(),

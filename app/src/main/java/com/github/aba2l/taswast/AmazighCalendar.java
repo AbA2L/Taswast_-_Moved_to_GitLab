@@ -19,8 +19,6 @@ public class AmazighCalendar {
     private static int dec = 0;             // Count month decalage!
     private static int firstDayOfMonth = 0; // Save Fist day of month
 
-    private static String[] eventsOfMonth;  // Events of month
-
     /**
      * Table of months in tamaziƔt:
      *        En          Tm
@@ -163,15 +161,20 @@ public class AmazighCalendar {
 
     /**
      * Get event name with position
-     * @param position (position of day
+     * @param day (day of month)
      * @return String contains events of day.
      */
-    public static String getDayEventName(int position){
-        String name = eventsOfMonth[position];
+    public static String getDayEvents(int day){
+        String name = "";
+        int[] events = Event.getEvetnsOfDay(
+                day, Integer.parseInt(new SimpleDateFormat("MM").format(AmazighCal.getTime())));
+        for (int i=0; i<events.length; i++){
+            name = name+"\n  * "+Event.getEventById(events[i]);
+        }
         if(name!=null){
-            return "Ass n "+position+": "+name;
+            return "Ass n "+day+":"+name;
         } else {
-            return "Ulac walou ass n "+position+"!!!";
+            return "Ulac walou ass n "+day+"!!!";
         }
     }
 
@@ -255,14 +258,12 @@ public class AmazighCalendar {
         boolean[] tab = new boolean[42];
         int[][] eventDays = Event.getEventsOfMonth(
                 Integer.parseInt(new SimpleDateFormat("MM").format(AmazighCal.getTime())));
-        eventsOfMonth = new String[31];
 
         for(int i=0; i<tab.length; i++){
             tab[i]=false;
         }
         for (int i=0; i<eventDays.length; i++){
             tab[eventDays[i][0]+firstDayOfMonth]=true;
-            eventsOfMonth[eventDays[i][0]]=Event.getEventById(eventDays[i][2]);
         }
 
         return tab;

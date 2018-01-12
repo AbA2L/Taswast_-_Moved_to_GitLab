@@ -46,7 +46,7 @@ public class Event {
             event = new int[3];
             if(events[i][1]==month){
                 event = events[i];
-                monthEvents = addElement(monthEvents, event);
+                monthEvents = addElementTo2DTable(monthEvents, event);
             }
         }
 
@@ -62,11 +62,44 @@ public class Event {
     }
 
     /**
+     * @param day
+     * @param month
+     * @return All events who selebrated in this day.
+     */
+    public static int[] getEvetnsOfDay(int day, int month){
+        int[] toreturn = new int[0];
+
+        for (int i=0; i<events.length; i++){
+            if (events[i][0]==day && events[i][1]==month){
+                toreturn=addElementTo1DTabel(toreturn, events[i][2]);
+            }
+        }
+
+        return toreturn;
+    }
+
+    /**
+     * @param old_tab old 1d tab you want to add String
+     * @param toAdd String you want add to 1D table
+     * @return new 1D table as old_tab+toAdd
+     */
+    private static int[] addElementTo1DTabel(int[] old_tab, int toAdd){
+        int[] tab = new int[old_tab.length+1];
+
+        for (int i=0; i<old_tab.length; i++){
+            tab[i]=old_tab[i];
+        }
+        tab[old_tab.length]=toAdd;
+
+        return tab;
+    }
+
+    /**
      * @param old_tab old 2d tab you want to add line
-     * @param add_tab line to add as 1d tab
+     * @param add_tab line you want add to 2D table
      * @return new 2d table as old_tab+add_tab
      */
-    public static int[][] addElement(int[][] old_tab, int[] add_tab) {
+    private static int[][] addElementTo2DTable(int[][] old_tab, int[] add_tab) {
         int[][] tab = new int[old_tab.length+1][add_tab.length];
 
         for (int i=0; i<old_tab.length; i++){
