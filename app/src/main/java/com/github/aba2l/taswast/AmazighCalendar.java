@@ -120,8 +120,8 @@ public class AmazighCalendar {
     public static int[] tableMonthImgDay(){
         int[] gridViewImageId = new int[42];
         for (int i=0; i<gridViewImageId.length; i++){
-            if (i==Integer.parseInt(
-                    new SimpleDateFormat("dd").format(AmazighCal.getTime())) && dec==0){
+            if (i==(Integer.parseInt(
+                    new SimpleDateFormat("dd").format(AmazighCal.getTime()))+firstDayOfMonth) && dec==0){
                 gridViewImageId[i] = R.drawable.ic_bar_now_day;
             } else {
                 gridViewImageId[i]=0;

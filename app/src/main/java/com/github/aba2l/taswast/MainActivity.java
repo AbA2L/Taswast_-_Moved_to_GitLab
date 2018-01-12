@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static String vertion = "beta-0.9";
+    private static String vertion = "V0.9-Beta2";
 
     private static TextView monthView;
     private static Button previous;
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.action_vertion){
             Toast.makeText(
                     getApplicationContext(),
-                    "Taswast V_"+vertion, Toast.LENGTH_SHORT).show();
+                    "Taswast "+vertion, Toast.LENGTH_SHORT).show();
         }
 
         return super.onOptionsItemSelected(item);
