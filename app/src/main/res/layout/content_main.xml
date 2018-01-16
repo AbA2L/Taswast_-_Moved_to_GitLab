@@ -14,7 +14,8 @@
         android:layout_height="match_parent"
         android:stretchColumns="1">
 
-        <TableRow>
+        <TableRow
+            android:id="@+id/row1">
 
             <Button
                 android:layout_width="match_parent"

@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
          *  Previous
          *  Next
          *  ManthTable(GrideView)
-         *  On swipe (Next/Previous) from week_daysView
+         *  On swipe (Next/Previous) from next/previous, monthView and week_daysView
          */
         previous.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +103,14 @@ public class MainActivity extends AppCompatActivity {
                             getApplicationContext(),
                             "Ifeɤ deg lehsav", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+        findViewById(R.id.row1).setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
+            public void onSwipeRight() {
+                previousMonth(MainActivity.this);
+            }
+            public void onSwipeLeft() {
+                nextMonth(MainActivity.this);
             }
         });
         week_daysView.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
