@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                                     int position, long id) {
                 int day = Integer.parseInt(
                         ((TextView) v.findViewById(R.id.android_gridview_text)).getText()+"");
-                if(!(((position<6)&&(day>27)) || ((position>30)&&(day<12)))){
+                if(!(((day>22)&&(position<7))||((day<15)&&(position>27)))){
                     Toast.makeText(
                             getApplicationContext(),
                             AmazighCalendar.getDayEvents(day), Toast.LENGTH_SHORT).show();

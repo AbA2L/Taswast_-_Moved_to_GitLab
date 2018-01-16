@@ -1,6 +1,7 @@
 package com.github.aba2l.taswast;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,13 @@ public class MonthGridView extends BaseAdapter {
             TextView textViewAndroid = (TextView) gridViewAndroid.findViewById(R.id.android_gridview_text);
             ImageView dayImageViewAndroid = (ImageView) gridViewAndroid.findViewById(R.id.android_gridview_image_day);
             ImageView eventImageViewAndroid = (ImageView) gridViewAndroid.findViewById(R.id.android_gridview_image_event);
-            textViewAndroid.setText(gridViewString[i]);
+            int day = Integer.parseInt(gridViewString[i]);
+            if(!(((day>22)&&(i<7))||((day<15)&&(i>27)))) {
+                textViewAndroid.setText(gridViewString[i]);
+            } else {
+                textViewAndroid.setTextColor(Color.parseColor("#9E9E9E"));
+                textViewAndroid.setText(gridViewString[i]);
+            }
             dayImageViewAndroid.setImageResource(dayGridViewImageId[i]);
             eventImageViewAndroid.setImageResource(eventGridViewImageId[i]);
         } else {
