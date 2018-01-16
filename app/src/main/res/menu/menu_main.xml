@@ -5,16 +5,21 @@
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
-        android:title="settings"
+        android:title="Settings"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_cerdits"
         android:orderInCategory="100"
-        android:title="credits"
+        android:title="Credits"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/report_bug"
+        android:orderInCategory="100"
+        android:title="Report probleme"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_vertion"
         android:orderInCategory="100"
-        android:title="vertion"
+        android:title="Vertion"
         app:showAsAction="never"/>
 </menu>

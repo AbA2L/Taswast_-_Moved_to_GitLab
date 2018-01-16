@@ -2,6 +2,7 @@ package com.github.aba2l.taswast;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -145,13 +146,18 @@ public class MainActivity extends AppCompatActivity {
              */
             //startActivity(new Intent(MainActivity.this, SettingsActivity.class));
             return true;
-        } else if (id == R.id.action_cerdits){
+        } else if (id == R.id.action_cerdits) {
             startActivity(new Intent(MainActivity.this, CreditsActivity.class));
+            return true;
+        } else if (id == R.id.report_bug){
+            startActivity(new Intent(
+                    Intent.ACTION_VIEW, Uri.parse("https://www.github.com/AbA2L/Taswast/issues/new")));
             return true;
         } else if (id == R.id.action_vertion){
             Toast.makeText(
                     getApplicationContext(),
                     "Taswast "+vertion, Toast.LENGTH_SHORT).show();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
